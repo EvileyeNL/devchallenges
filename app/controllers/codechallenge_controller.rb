@@ -18,4 +18,8 @@ class CodechallengeController < ApplicationController
       end
     render :index
   end
+
+  def show
+    redirect_to :action => :index
+  end
 end
