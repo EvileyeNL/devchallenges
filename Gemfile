@@ -29,6 +29,7 @@ gem 'questionnaire_engine', github: 'dr-click/questionnaire',
   branch: 'master', require: 'survey'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
