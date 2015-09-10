@@ -28,6 +28,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'questionnaire_engine', github: 'dr-click/questionnaire',
   branch: 'master', require: 'survey'
 
+gem 'pry-rails'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'spring'
@@ -35,6 +37,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
 end
 
 group :development do
