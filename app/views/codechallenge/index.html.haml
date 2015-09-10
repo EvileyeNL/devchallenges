@@ -7,3 +7,6 @@
     =text_area_tag "codechallenge_attempt", @codechallenge.problem, :rows => 15, :style => "width: 100%"
     .pull-right
       =f.submit "Submit", class: 'btn btn-primary btn-lg'
+
+%script
+  $('#codechallenge_attempt').ace({ theme: 'twilight', lang: 'ruby' })

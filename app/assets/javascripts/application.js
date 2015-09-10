@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ace-rails-ap
+//= require ace/theme-twilight
+//= require ace/mode-ruby
+//= require jquery-ace.min
 //= require_tree .

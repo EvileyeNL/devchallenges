@@ -30,6 +30,9 @@ gem 'questionnaire_engine', github: 'dr-click/questionnaire',
 
 gem 'pry-rails'
 
+gem 'ace-rails-ap'
+gem 'jquery-ace-rails'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'spring'
