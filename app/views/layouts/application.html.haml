@@ -11,5 +11,12 @@
         .pull-right
           = link_to 'Follow us', 'https://www.twitter.com/SpringestOps'
         %h3.text-muted Springest Developer Contests
+      %ul{:class => "nav nav-pills"}
+        %li{:role => "presentation"}
+          = link_to 'Home', root_url
+        %li{:role => "presentation"}
+          = link_to 'Code challenge', "/codechallenge"
+
+
 
       = yield

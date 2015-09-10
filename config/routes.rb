@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :surveys
   resources :attempts, :only => [:new, :create]
+  resources :codechallenge
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

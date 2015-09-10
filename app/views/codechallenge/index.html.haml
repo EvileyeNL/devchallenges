@@ -1,0 +1,9 @@
+%h3="Code Challenge"
+%strong="Description:"
+%em=@codechallenge.description
+
+.codechallenge-form
+  = form_for(@codechallenge, :url => codechallenge_path(@codechallenge), html: { role: 'form' }) do |f|
+    =text_area_tag "codechallenge_attempt", @codechallenge.problem, :rows => 15, :style => "width: 100%"
+    .pull-right
+      =f.submit "Submit", class: 'btn btn-primary btn-lg'
