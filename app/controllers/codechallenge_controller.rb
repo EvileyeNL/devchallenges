@@ -2,14 +2,12 @@ class CodechallengeController < ApplicationController
 
   def index
     @codechallenge = Codechallenge.first
-    @execute_result = ""
   end
 
   def update
       current_id = params[:id]
       attempt = params[:codechallenge_attempt]
       @codechallenge = Codechallenge.find(current_id)
-      @execute_result = ""
 
       unless Codechallenge.find(current_id).solution == attempt
         command = "ruby -c << EOF\r\n#{attempt} \r\nEOF"
