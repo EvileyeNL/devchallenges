@@ -6,7 +6,7 @@ class Codechallenge < ActiveRecord::Base
 
   def compare_problem_to(attempt)
     unless self.solution == attempt
-      command = "ruby -c << EOF\r\n#{attempt} \r\nEOF"
+      command = "ruby -c << EOF\n#{attempt} \nEOF"
       execute_result = ""
       Open3.popen2e(command){|stdin,out|
         out.each{ |line|
@@ -31,11 +31,7 @@ class Codechallenge < ActiveRecord::Base
   private
 
   def run_ruby_code(attempt, test_code)
-    file = Tempfile.new(['e','.rb'], "/tmp")
-    file.write(attempt)
-    file.write("\r\np (#{test_code})")
-    file.close
-    command = "ruby #{file.path}"
+    command = "ruby << EOF\n#{attempt}\np (#{test_code})\nEOF"
     execute_result = ""
     Open3.popen2e(command){|stdin,out|
       out.each{ |line|
