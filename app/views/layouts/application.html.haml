@@ -9,6 +9,12 @@
     .container
       .header
         .pull-right
+          - if current_user.present?
+            ==Welcome #{current_user.email}!
+            = link_to "(logout)", destroy_user_session_path, :method => :delete
+          - else
+            = link_to "login", new_user_session_path
+          |
           = link_to 'Follow us', 'https://www.twitter.com/SpringestOps'
         %h3.text-muted Springest Developer Contests
       %ul{:class => "nav nav-pills"}
