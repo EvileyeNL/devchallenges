@@ -7,7 +7,7 @@
     =text_area_tag "codechallenge_attempt", @codechallenge.problem, :rows => 15, :style => "width: 100%"
     - if @execute_result.present?
       .result
-        %pre=@execute_result.html_safe
+        %pre=@execute_result
     %br
     .pull-right
       =f.submit "Submit", class: 'btn btn-primary btn-lg'
