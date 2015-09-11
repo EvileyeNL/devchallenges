@@ -1,4 +1,5 @@
 class CodechallengeController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @codechallenge = Codechallenge.first
