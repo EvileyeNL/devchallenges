@@ -7,6 +7,7 @@ ActiveAdmin.register Codechallenge do
     column :problem
     column :attempts_number
     column :solution
+    column :test_code
     default_actions
   end
 
