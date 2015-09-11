@@ -1,7 +1,7 @@
 class Codechallenge < ActiveRecord::Base
 
-  def nextChallenge
-    self.class.where('id > ?', id).first
+  def self.nextChallenge(id)
+    self.where('id > ?', id).first
   end
 
   def compare_problem_to(attempt)

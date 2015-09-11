@@ -35,4 +35,10 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def setChallenge(challenge)
+    self.codechallenge_id = challenge.id
+    self.save
+  end
+
 end
