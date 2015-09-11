@@ -10,7 +10,7 @@ class Codechallenge < ActiveRecord::Base
       execute_result = ""
       Open3.popen2e(command){|stdin,out|
         out.each{ |line|
-          execute_result += line+"<br/>"
+          execute_result += line
         }
       }
       # TODO: regex the /tmp/file.rb:1 part in execute_result
@@ -39,7 +39,7 @@ class Codechallenge < ActiveRecord::Base
     execute_result = ""
     Open3.popen2e(command){|stdin,out|
       out.each{ |line|
-        execute_result += line+"<br/>"
+        execute_result += line
       }
     }
     # TODO: regex the /tmp/file.rb:1 part in execute_result
