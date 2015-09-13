@@ -13,20 +13,23 @@ class CodechallengeController < ApplicationController
       attempt = params[:codechallenge_attempt]
       @codechallenge = Codechallenge.find(params[:id])
 
-      @execute_result = @codechallenge.compare_problem_to attempt
-      if @execute_result == true
+      if @codechallenge.compare_problem_to attempt
         @eval_result = @codechallenge.eval_and_run_test_code attempt
         if @eval_result.match(/true/).present?
-            @execute_result = "Congratz! Let's try the next challenge :)"
+            flash[:notice] = "Congratz! Let's try the next challenge :)"
             current_user.setChallenge(@codechallenge)
+            redirect_to :action => :index
         else
             @codechallenge.problem = attempt
-            @execute_result = "Execute result: #{@eval_result}"
+            flash[:notice] = "Try to get this test to return valid: #{@codechallenge.test_code}"
+            flash[:notice] += "\nExecute result: #{@eval_result}"
+            render :index
         end
       else
         @codechallenge.problem = attempt
+        render :index
       end
-    render :index
+
   end
 
   def show

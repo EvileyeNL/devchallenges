@@ -5,9 +5,8 @@
 .codechallenge-form
   = form_for(@codechallenge, :url => codechallenge_path(@codechallenge), html: { role: 'form' }) do |f|
     =text_area_tag "codechallenge_attempt", @codechallenge.problem, :rows => 15, :style => "width: 100%"
-    - if @execute_result.present?
-      .result
-        %pre=@execute_result
+    -flash.each do |name,msg|
+      %pre=content_tag :div, msg, class: name
     %br
     .pull-right
       =f.submit "Submit", class: 'btn btn-primary btn-lg'
